@@ -1,7 +1,9 @@
 # Olympus   
 ------------------
 
-[Lic](https://img.shields.io/github/license/nebula-plugins/gradle-lint-plugin.svg)
-
+![license](https://img.shields.io/github/license/mashape/apistatus.svg)
+  
+  
+------------------  
 
 Micro services example applications
