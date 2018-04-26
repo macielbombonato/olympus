@@ -1,0 +1,7 @@
+.gradle/**
+.idea/**
+.idea/**
+.sts4-cache/**
+build/**
+bin/**
+out/**

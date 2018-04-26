@@ -1,0 +1,26 @@
+server:
+  port: 8888
+
+management:
+  context_path: /admin
+
+info:
+  component: Config Server
+
+spring:
+  application:
+    name: olympus_infra--config
+  autoconfigure.exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  jmx:
+    default_domain: cloud.config.server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/spring-cloud-samples/config-repo
+          repos:
+            - patterns: multi-repo-demo-*
+              uri: https://github.com/spring-cloud-samples/config-repo
+
+
+
