@@ -7,13 +7,13 @@ networks:
 services:
 
   infra_router:
-    container_name: olympus_infra--zuul
-    image: macielbombonato/olympus_infra--zuul:latest
+    container_name: olympus_infra--eureka
+    image: macielbombonato/olympus_infra--eureka:latest
     #restart: always
     ports:
-      - "9000:9000"
+      - "8761:8761"
     environment:
-      - ENVIRONMENT=hml
+      - ENVIRONMENT=dev
       - CONFIG_SERVER_URL=http://localhost
       - LOGGIN_LEVEL=debug
       - DEBUG_REQUEST=true
