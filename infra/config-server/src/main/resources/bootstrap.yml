@@ -1,5 +1,5 @@
 spring:
   application:
-    name: foo
+    name: olympus
   profiles:
-    active: dev,mysql
+    active: docker,mysql
