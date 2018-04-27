@@ -33,6 +33,10 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
 	compile('org.springframework.cloud:spring-cloud-starter-config')
+
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-netflix-eureka-server
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-netflix-eureka-server'
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 

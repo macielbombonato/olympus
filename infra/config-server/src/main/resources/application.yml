@@ -2,24 +2,36 @@ server:
   port: 8888
 
 management:
-  context_path: /admin
-
-info:
-  component: Config Server
+  context-path: /admin
+  
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: /admin/info
+    healthCheckUrlPath: /admin/health
 
 spring:
-  application:
-    name: olympus_infra--config-server
-  profiles: cloud
-  autoconfigure.exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-  jmx:
-    default_domain: cloud.config.server
   cloud:
     config:
       server:
         git:
-          #uri: https://github.com/spring-cloud-samples/config-repo
-          uri: https://github.com/macielbombonato/olympus/tree/master/infra/configuration-files
-          repos:
-            #- patterns: multi-repo-demo-*
-            - uri: https://github.com/macielbombonato/olympus/tree/master/infra/configuration-files
+          uri: https://github.com/macielbombonato/olympus
+          basedir: infra/configuration-files
+
+---
+spring:
+  profiles: cloud
+
+eureka:
+  password: password
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:${eureka.password:}@${PREFIX:}eureka.${application.domain:cfapps.io}}/eureka/

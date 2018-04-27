@@ -1,28 +1,9 @@
 server:
   port: 8761
 
-error:
-    whitelabel:
-      enabled: false
-
-spring:
-  application:
-    name: eureka-server
-
-  profiles:
-    active: docker
-  cloud:
-    config:
-      uri: ${CONFIG_SERVER_URL}
-#      label: develop
-
-#Eureka Specifics
-
 eureka:
-  instance:
-    hostname: localhost
   client:
     registerWithEureka: false
     fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0

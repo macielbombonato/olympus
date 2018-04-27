@@ -14,7 +14,7 @@ services:
       - "8761:8761"
     environment:
       - ENVIRONMENT=dev
-      - CONFIG_SERVER_URL=http://localhost
+      - CONFIG_SERVER_URL=http://localhost:8888
       - LOGGIN_LEVEL=debug
       - DEBUG_REQUEST=true
 
