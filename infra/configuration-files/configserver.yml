@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: docker
+
+  cloud:
+    config:
+      server:
+        git:
+          #uri: https://github.com/macielbombonato/olympus
+          #basedir: infra/configuration-files
+          uri:  ${HOME}/workspace/macielbombonato/olympus/infra/configuration-files
+
+management:
+  context-path: /admin
+
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+
+eureka:
+#  password: password
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: /admin/info
+    healthCheckUrlPath: /admin/health
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:${eureka.password:}@${PREFIX:}eureka.${application.domain:cfapps.io}}/eureka/

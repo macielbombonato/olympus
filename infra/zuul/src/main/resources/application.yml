@@ -2,29 +2,14 @@ server:
   port: 9000
 
 spring:
-  application:
-    name: olympus_infra--zuul
   profiles:
     active:
-  cloud:
-    config:
-      uri: ${CONFIG_SERVER_URL}
-#      label: develop
-ribbon:
-  eureka:
-    enabled: true
+      docker
 
-logging:
- level:
-   org:
-     springframework:
-       cloud:
-         netflix: ${LOGGIN_LEVEL}
-
-zuul:
-  debug:
-    request: ${DEBUG_REQUEST}
-  routes:
-    example:
-      path: /example/**
-      url: ${VAR}/path
+#zuul:
+#  debug:
+#    request: ${DEBUG_REQUEST}
+#  routes:
+#    example:
+#      path: /example/**
+#      url: ${VAR}/path
